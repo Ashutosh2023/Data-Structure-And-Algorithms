@@ -15,7 +15,7 @@ import math
 # getDivisors(36)
 
 
-get proper sorted data
+# get proper sorted data
 def getDivisors(n: int):
     if n <= 0:
         raise ValueError("Divisors are defined only for positive integers")

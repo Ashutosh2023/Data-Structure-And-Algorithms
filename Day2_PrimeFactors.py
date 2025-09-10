@@ -39,3 +39,20 @@ def getPrimeFactorsopt(n: int):
         small.append(n)
     print(small)
 getPrimeFactorsopt(780)
+
+
+# def getPrimeFactors(n: int, factors: set):
+#         # factor 2 separately
+#         while n % 2 == 0:
+#             factors.add(2)
+#             n //= 2
+
+#         # odd factors
+#         for i in range(3, math.isqrt(n) + 1, 2):
+#             while n % i == 0:
+#                 factors.add(i)
+#                 n //= i
+
+#         # if anything left, it is prime
+#         if n > 1:
+#             factors.add(n)
