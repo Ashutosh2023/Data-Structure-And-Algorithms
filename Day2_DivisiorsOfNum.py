@@ -24,8 +24,8 @@ def getDivisors(n: int):
     for i in range(1, math.isqrt(n) + 1):
             if n % i == 0:
                 small.append(i)
-            if n // i != i:
-                large.append(n // i)
+                if n // i != i:
+                    large.append(n // i)
     print(small + large[::-1])
 
 getDivisors(36)
