@@ -33,15 +33,15 @@ def getPrimeFactorsopt(n: int):
             break
         if n % i == 0:
             small.append(i)
-            while n%i==0:
-                n = n//i
+            while n%i==0:  ## if it was divisible by 2 then divide the number until it is divisible by 2
+                n = n//i   ## exhaust all 2 
     if(n!=1):
         small.append(n)
     print(small)
 getPrimeFactorsopt(780)
 
 
-# def getPrimeFactors(n: int, factors: set):
+# def getAllPrimeFactors(n: int, factors: set):
 #         # factor 2 separately
 #         while n % 2 == 0:
 #             factors.add(2)
