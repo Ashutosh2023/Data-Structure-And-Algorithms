@@ -22,3 +22,16 @@ arr = [2,6,4,8,9,3,1]
 bubbleSort(arr)
 print(arr)
 
+# Insertion sort takes a element and place it at the correct position
+# As the value of i increases the array till 0 to i is always sorted for that above condition is applied for on each 0 to i::
+def insertionSort(arr):
+    for i in range(len(arr)):
+        j = i
+        while j>0 and arr[j-1] > arr[j]:
+            arr[j-1], arr[j] = arr[j], arr[j-1]
+            j -= 1
+
+
+arr = [2,6,4,8,9,3,1]
+insertionSort(arr)
+print(arr)
