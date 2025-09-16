@@ -1,0 +1,4 @@
+def MoveZeros():
+
+
+print(MoveZeros())

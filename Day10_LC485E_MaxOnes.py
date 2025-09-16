@@ -1,0 +1,4 @@
+def MaxOnes():
+
+
+print(MaxOnes())
