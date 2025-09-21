@@ -1,4 +1,4 @@
-#Time Complexity O(nlogn) due to sorting
+#Time Complexity O(nlogn) due to sorting extra space O(n)
 def longestConsecutive(nums: list[int]) -> int:
     if(len(nums) == 0):
         return 0
@@ -15,7 +15,7 @@ def longestConsecutive(nums: list[int]) -> int:
         count = 1
     return maxcount
 
-
+#almost O(n) time use set extra space O(n)
 def longestConsecutive(nums: list[int]) -> int:
     num_set = set(nums)
     longest = 0
