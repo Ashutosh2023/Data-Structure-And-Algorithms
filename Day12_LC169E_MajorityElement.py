@@ -17,15 +17,16 @@ arr = [1,2,3,1,2,1,1,1]
 #O(1) extra space, use the Boyer–Moore Voting Algorithm
 def majorityElementOptm(arr) -> int:
     majority = arr[0]
-    count = 1
-    for i in range (1,len(arr)):
-        if arr[i] == majority:
-            count+=1
-        else:
-            count-=1
+    count = 0
+    for i in range (0,len(arr)):
         if count == 0:
             majority = arr[i]
             count = 1
+        elif arr[i] == majority:
+            count+=1
+        else:
+            count-=1
+        
     return majority
 
 nums = [2,2,1,1,1,2,2]
