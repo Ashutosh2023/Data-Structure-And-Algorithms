@@ -18,20 +18,20 @@ def maxProductSubarray(nums: list[int]) -> int:
 
 def maxProductSubarray(nums: list[int]) -> int:
     prefix = suffix = 1
-    maxProd = 0
+    maxProd = nums[0]
     n = len(nums)
     for i in range(n):
         if(prefix == 0):
             prefix = 1
         if(suffix == 0):
             suffix = 1
-        prefix = prefix * nums[i]
-        suffix = suffix * nums[n - i -1]
-        maxProd = max(maxProd, max(prefix, suffix))
-        print(prefix,suffix,maxProd)
+        prefix *= nums[i]
+        suffix *= nums[n - i -1]
+        maxProd = max(maxProd, prefix, suffix)
     return maxProd
 
 nums = [-2,0,-1]
 nums = [2,3,-2,4]
 nums = [-2,-3,-4]
+nums = [-2]
 print(maxProductSubarray(nums))
