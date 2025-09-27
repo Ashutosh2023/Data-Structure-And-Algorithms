@@ -22,7 +22,6 @@ def productExceptSelf(nums: list[int]) -> list[int]:
 
 # Observation if it has more than 1 Zeros then all the values in array would be zero
 # if there is one zero then on the place where zero was you will get a integer value others will be zero
-#space O(2n)
 def productExceptSelf(nums: list[int]) -> list[int]:
     zeros = 0
     idx = -1
