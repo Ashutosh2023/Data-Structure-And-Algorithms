@@ -1,37 +1,78 @@
-
-def merge(arr, low, mid, high):
-    temp = []
+def merge(nums: list[int], low: int, mid: int, high: int):
     left = low
-    right = mid+1
-    while(left <= mid and right <= high):
-        if(arr[left] <= arr[right]):
-            temp.append(arr[left])
+    right = mid
+    temp = []
+    while left<mid and right<high:
+        if nums[left] <= nums[right]:
+            temp.append(nums[left])
             left += 1
         else:
-            temp.append(arr[right])
+            temp.append(nums[right])
             right += 1
-    
-    while(left<=mid):
-        temp.append(arr[left])
+        
+    while left<mid:
+        temp.append(nums[left])
         left += 1
-    while(right<=high):
-        temp.append(arr[right])
+    while right<high:
+        temp.append(nums[right])
         right += 1
+    
+    for i in range(low, high):
+        nums[i] = temp[i-low]
 
-    for i in range(low, high+1):
-        arr[i] = temp[i-low]
-
-def divide(arr, low, high):
-    if(low == high): 
-        return
+def mergeSort(nums: list[int],low: int, high: int):
     mid = (low+high)//2
-    divide(arr, low, mid)
-    divide(arr, mid+1, high)
-    merge(arr, low, mid, high)
+    if mid == low:
+        return
+    mergeSort(nums, low, mid)
+    mergeSort(nums, mid, high)
+    merge(nums, low, mid, high)
 
-def mergeSort(arr):
-    divide(arr, 0, len(arr)-1)
+# nums = [-1,5,3,4,0]
+# mergeSort(nums, 0, len(nums))
+# print(nums)
 
-arr = [6,18,2,1,9,6,7,5,4]
-mergeSort(arr)
-print(arr)
+#leetcode version
+class Solution:
+    def sortArray(self, nums: list[int]) -> list[int]:
+        self._mergeSort(nums, 0, len(nums))
+        return nums
+
+    def _mergeSort(self, nums: list[int], low: int, high: int):
+        if high - low <= 1:
+            return
+
+        mid = (low + high) // 2
+        
+        self._mergeSort(nums, low, mid)
+        self._mergeSort(nums, mid, high)
+
+        self._merge(nums, low, mid, high)
+
+    def _merge(self, nums: list[int], low: int, mid: int, high: int):
+        left = low
+        right = mid
+        temp = []
+        
+        while left < mid and right < high:
+            if nums[left] <= nums[right]:
+                temp.append(nums[left])
+                left += 1
+            else:
+                temp.append(nums[right])
+                right += 1
+            
+        while left < mid:
+            temp.append(nums[left])
+            left += 1
+            
+        while right < high:
+            temp.append(nums[right])
+            right += 1
+        
+        for i in range(low, high):
+            nums[i] = temp[i - low]
+
+nums = [-1,5,3,4,0]
+Solution().sortArray(nums)
+print(nums)
