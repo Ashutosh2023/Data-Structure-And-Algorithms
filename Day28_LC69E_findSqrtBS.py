@@ -17,8 +17,8 @@ def SearchSqrt(x):
 
 # Time Complexity: O(log n) : recursion
 def SqrtBinarySearch(x: int, low: int, high: int) -> int:
-    if low == high:
-        return low
+    if low > high:
+        return high
     mid = low + (high - low) // 2
     num = mid ** 2
     if num == x:
@@ -31,9 +31,8 @@ def SqrtBinarySearch(x: int, low: int, high: int) -> int:
     
     
 def FindSqrt(x: int) -> int:
-    if x < 2:
+    if x<2:
         return x
-    else:
-        return SqrtBinarySearch(x, 2, x // 2)
+    return SqrtBinarySearch(x, 2, x // 2)
 
-print(FindSqrt(8))
+print(FindSqrt(2))
