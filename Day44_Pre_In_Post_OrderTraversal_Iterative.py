@@ -51,7 +51,7 @@ def preOrderTraversal(root: Node):
         if current.left:
             stack.append(current.left)
     return result
-# InOrder Traversal (Left::Root::Right) :
+# InOrder Traversal (Left::Root::Right) : VVIP
 def inOrderTraversal(root: Node):
     if not root:
         return []
