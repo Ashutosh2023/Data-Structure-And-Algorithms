@@ -37,7 +37,57 @@ rightChild.right = rightRight
 
 
 def zigzagLevelOrder(root: Node) -> list[list[int]]:
-    pass
+    if not root:
+        return []
+    result = []
+    Queue = [root]
+    flag = True
+    while len(Queue) > 0:
+        level_size = len(Queue)
+        level_nodes = []
+        Queue = Queue[::-1]
+        flag = not flag
+        for _ in range(level_size):
+            current = Queue.pop(0)
+            level_nodes.append(current.data)
+            if flag:
+                if current.right:
+                    Queue.append(current.right)
+                if current.left:
+                    Queue.append(current.left)
+            else:
+                if current.left:
+                    Queue.append(current.left)
+                if current.right:
+                    Queue.append(current.right)
+        result.append(level_nodes)
+    return result
 
+# print(zigzagLevelOrder(root))
 
-print(zigzagLevelOrder(root))
+def zigzagLevelOrder2(root: Node) -> list[list[int]]:
+    if not root:
+        return []
+    result = []
+    Queue = [root]
+    left_to_right  = True
+    while len(Queue) > 0:
+        level_size = len(Queue)
+        level_nodes = []
+        
+        for _ in range(level_size):
+            current = Queue.pop(0)
+            level_nodes.append(current.data)
+            if current.left:
+                Queue.append(current.left)
+            if current.right:
+                Queue.append(current.right)
+        
+        if not left_to_right :  #instead of reversing the whole queue just reverse the level nodes and insert
+            level_nodes.reverse() 
+
+        result.append(level_nodes)
+        left_to_right  = not left_to_right 
+    return result
+
+print(zigzagLevelOrder2(root))
