@@ -37,7 +37,7 @@ def inOrderTraversal(root: Node):
 
     return left_values + [root.data] + right_values
 
-print(inOrderTraversal(root))
+print(inOrderTraversal(root)) 
 
 def getSuccessor(curr):
     curr = curr.right
